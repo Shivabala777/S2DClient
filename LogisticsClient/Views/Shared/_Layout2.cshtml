@@ -1,0 +1,65 @@
+﻿@inject IHttpContextAccessor Accessor;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/StyleSheet.css" asp-append-version="true" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+     <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-blue border-bottom box-shadow mb-3" style="color:white">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Admin Dashboard</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Admins" asp-action="AdminDashBoard">Manage-Customer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Orders">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Admins" asp-action="Tracking">UpdateTracking</a>
+                        </li>
+                    </ul>
+                    @if (Accessor.HttpContext.Session.GetString("UserName") != null)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav-item">
+                                <p class="nav-link text-dark">@Accessor.HttpContext.Session.GetString("UserName").ToString()</p>
+                            </li>
+                                    <li class="nav-item">
+                                <a class="nav-link text-dark btn-danger text-white " asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+                            </li>
+                        </ul>
+             
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+@*<li class="nav-item">@Html.ActionLink("Manage-Customer", "Index", "Admins")</li>|
+
+<li class="nav-item">@Html.ActionLink("Order-View", "Orders", "Customers")</li>|
+
+<li class="nav-item">@Html.ActionLink("UpdateTracking", "Tracking", "Admins")</li>|
+
+<li class="nav-item">@Html.ActionLink("Logout", "Login", "Admins")</li>|*@

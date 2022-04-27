@@ -1,0 +1,246 @@
+﻿@model LogisticsClient.Models.Order
+
+@{
+    ViewData["Title"] = "Approve";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h1>Decline Confirmation</h1>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Decline">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <input asp-for="CustomerId" class="form-control"  readonly="@(true)"/>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="OrderId" class="control-label"></label>
+                <input asp-for="OrderId" class="form-control" />
+                <span asp-validation-for="OrderId" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" readonly="@(true)"/>
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Source" class="control-label"></label>
+                <input asp-for="Source" class="form-control" readonly="@(true)"/>
+                <span asp-validation-for="Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination" class="control-label"></label>
+                <input asp-for="Destination" class="form-control"  readonly="@(true)"/>
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kilometres" class="control-label"></label>
+                <input asp-for="Kilometres" class="form-control" readonly="@(true)"/>
+                <span asp-validation-for="Kilometres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" readonly="@(true)"/>
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>*@
+           @* <div class="form-group">
+                <label asp-for="Charges" class="control-label"></label>
+                <input asp-for="Charges" class="form-control" />
+                <span asp-validation-for="Charges" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="ApprovalStatus" class="control-label"></label>
+                <input asp-for="ApprovalStatus" class="form-control" readonly="@(true)"/>
+                <span asp-validation-for="ApprovalStatus" class="text-danger"></span>
+            </div>*@
+           @* <div class="form-group">
+                <label asp-for="DeliveryStatus" class="control-label"></label>
+                <input asp-for="DeliveryStatus" class="form-control" />
+                <span asp-validation-for="DeliveryStatus" class="text-danger"></span>
+            </div>*@
+           @* <div class="form-group">
+                <input type="submit" value="Approve" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>*@
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+<html>
+    <head>
+        <title>Design</title>
+        <style>
+          *
+          {
+              margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+          }
+          body{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              min-height: 100vh;
+              background: #f6f6f6;
+          }
+          .box{
+              width: 700px;
+            
+              border-bottom: 20px solid #03a9f4;
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+          }
+          .box h2{
+              height: 80px;
+              text-align: center;
+              color: #fff;
+              background: #03a9f4;
+              padding: 10px 20px;
+              font-size: 20px;
+              font-weight: 700;
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+          }
+          .box ul{
+              position: relative;
+              background: #fff;
+          }
+          .box ul li{
+              list-style: none;
+              padding: 10px;
+              width: 100%;
+              background: #fff;
+              box-shadow: 0 5px 25px rgba(0,0,0,.1);
+              transition: transform 0.5s;
+              height: 80px;
+          }
+         
+          .box ul li:hover{
+              transform: scale(1.1);
+              z-index: 100;
+              background: #25bcff;
+              box-shadow: 0 5px 25px rgba(0,0,0,.2);
+              color: #fff;
+          }
+          .box ul li span{
+              width: 20px;
+              height: 20px;
+              text-align: center;
+              line-height: 20px;
+              background: #25bcff;
+              color: #fff;
+              display: inline-block;
+              border-radius: 50%;
+              margin-right:10px ;
+              font-size: 12px;
+              font-weight: 600;
+              transform: translateY(-20px);
+          }
+          .box ul li:hover span{
+            background: #fff;
+              color: #25bcff;
+          }
+          .frm{
+              margin-left:615px;
+              margin-top:-38px;
+          }
+        </style>
+    </head>
+    <body>
+         <div class="box">
+             <h2>Order Details</h2>
+             <ul>
+                 <li><span>1</span>  
+                    <div class="row">
+                     <div class="col-xs-6 col-md-4">
+                      <b>@Html.DisplayNameFor(model => model.ProductName)</b>
+                     </div>
+                    <div class="col-xs-6 col-md-4">
+                       @Html.DisplayFor(model => model.ProductName)
+                    </div>
+                    </div>
+                  
+                 </li>
+                 <li><span>2</span>
+                      <div class="row">
+                      <div class="col-xs-6 col-md-4">
+                       <b>@Html.DisplayNameFor(model => model.Source)</b>
+                      </div>
+                    <div class="col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.Source)
+                    </div>
+                    </div>
+                 </li>
+                 <li><span>3</span>
+                     <div class="row">
+                     <div class="col-xs-6 col-md-4">
+                       <b>@Html.DisplayNameFor(model => model.Destination)</b>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.Destination)
+                    </div>
+                    </div>
+
+                 </li>
+                 <li><span>4</span>
+                    <div class="row">
+                     <div class="col-xs-6 col-md-4">
+                       <b>@Html.DisplayNameFor(model => model.Kilometres)</b>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.Kilometres)
+                    </div>
+                    </div>  
+                 </li>
+                 <li><span>5</span>
+                    <div class="row">
+                     <div class = "col-xs-6 col-md-4">
+                       <b>@Html.DisplayNameFor(model => model.Weight)</b>
+                    </div>
+                    <div class = "col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.Weight)
+                    </div>
+                    </div>    
+                 </li>
+                  @*<li><span>6</span>
+                    <div class="row">
+                     <div class = "col-xs-6 col-md-4">
+                       <b>@Html.DisplayNameFor(model => model.Charges)</b>
+                    </div>
+                    <div class = "col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.Charges)
+                    </div>
+                    </div>    
+                 </li>*@
+                  <li><span>6</span>
+                    <div class="row">
+                     <div class = "col-xs-6 col-md-4">
+                       <b>@Html.DisplayNameFor(model => model.ApprovalStatus)</b>
+                    </div>
+                    <div class = "col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.ApprovalStatus)
+                    </div>
+                    </div>    
+                 </li>
+             </ul>
+        </div>
+    </body>
+</html>
+
+<div>
+    
+    @Html.ActionLink("Back","Orders","Customers",null,new { @class="btn btn-info" })
+    <form asp-action="Decline" asp-controller="Admins" class="frm">
+         <input type="submit" value="Decline" class="btn btn-danger" />
+    </form>
+</div>
+

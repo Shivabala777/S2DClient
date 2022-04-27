@@ -1,0 +1,132 @@
+﻿@model LogisticsClient.Models.Order
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+@*<h1>Request</h1>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <input asp-for="CustomerId" class="form-control" />
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="OrderId" class="control-label"></label>
+                <input asp-for="OrderId" class="form-control" />
+                <span asp-validation-for="OrderId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Source" class="control-label"></label>
+                <input asp-for="Source" class="form-control" />
+                <span asp-validation-for="Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination" class="control-label"></label>
+                <input asp-for="Destination" class="form-control" />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kilometres" class="control-label"></label>
+                <input asp-for="Kilometres" class="form-control" />
+                <span asp-validation-for="Kilometres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Charges" class="control-label"></label>
+                <input asp-for="Charges" class="form-control" />
+                <span asp-validation-for="Charges" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="ApprovalStatus" class="control-label"></label>
+                <input asp-for="ApprovalStatus" class="form-control" />
+                <span asp-validation-for="ApprovalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeliveryStatus" class="control-label"></label>
+                <input asp-for="DeliveryStatus" class="form-control" />
+                <span asp-validation-for="DeliveryStatus" class="text-danger"></span>
+            </div>
+           <div class="form-group">
+                <input type="submit" value="Request" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body style=" background: linear-gradient(to right,#00b7ff,rgb(255, 255, 255))">
+	<div class="d-flex justify-content-center">
+		<div class="col-md-4">
+		  <h2>Request Order</h2>
+			  <form asp-action="CreateOrder" asp-controller="Customers">
+					@*<div style="font-weight:bold;" class="mb-3 mt-3"><!--control-label-->
+					  <label for="email">CustomerID:</label>
+					  <input type="email" style="background-color: rgb(255, 255, 255);" class="form-control" id="email" name="email">
+					</div>*@
+					<div style="font-weight:bold;" class="mb-3">
+					  <label asp-for="ProductName">ProductName:</label>
+					  <input asp-for="ProductName" style="background-color: rgb(255, 255, 255);" class="form-control" id="ProductName"  name="ProductName">
+                      <span asp-validation-for="ProductName" class="text-danger"></span>
+					</div>
+					<div style="font-weight:bold;" class="mb-3">
+					  <label asp-for="Source">Source:</label>
+					  <input asp-for="Source" style="background-color: rgb(255, 255, 255);;" class="form-control" id="sor"  name="Source">
+                      <span asp-validation-for="Source" class="text-danger"></span>
+					</div>
+					<div style="font-weight:bold;" class="mb-3">
+					  <label asp-for="Destination">Destination:</label>
+					  <input asp-for="Destination" style="background-color: rgb(255, 255, 255);" class="form-control" id="des" name="Destination">
+                      <span asp-validation-for="Destination" class="text-danger"></span>
+					</div>
+					<div style="font-weight:bold;" class="mb-3">
+					  <label asp-for="Kilometres">Kilometres</label>
+					  <input asp-for="Kilometres" style="background-color: rgb(255, 255, 255);" class="form-control" id="Kilo"  name="Kilometres" >
+                      <span asp-validation-for="Kilometres" class="text-danger"></span>
+					</div>
+					<div style="font-weight:bold;" class="mb-3">
+					  <label asp-for="Weight">Weight:</label>
+					  <input asp-for="Weight" style="background-color: rgb(255, 255, 255);" class="form-control" id="Weight"  name="Weight">
+                      <span asp-validation-for="Weight" class="text-danger"></span>
+					</div>
+					@*<div style="font-weight:bold;" class="mb-3">
+					  <label for="Kilo">ApprovalStatus:</label>
+					  <input type="ApprovalStatus" style="background-color:rgb(255, 255, 255);" class="form-control" id="ApprovalStatus"  name="ApprovalStatus">
+					</div>*@
+                    <input type="submit" class="btn btn-primary" value="Request">
+			  </form>
+		</div>
+	</div>
+
+</body>
+	
+</html>
+
+

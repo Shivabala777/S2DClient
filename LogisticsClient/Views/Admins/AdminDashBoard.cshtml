@@ -1,0 +1,248 @@
+﻿@model IEnumerable<LogisticsClient.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+<div class="container-fluid">
+<ul class="navbar-nav">
+
+
+<li class="nav-item">@Html.ActionLink("Manage-Customer", "Index", "Admins")</li>|
+
+<li class="nav-item">@Html.ActionLink("Order-View", "Orders", "Customers")</li>|
+
+<li class="nav-item">@Html.ActionLink("UpdateTracking", "Tracking", "Admins")</li>|
+
+<li class="nav-item">@Html.ActionLink("Logout", "Login", "Admins")</li>|
+</ul>
+</div>
+</nav>
+
+*@
+@*<h1>Customers</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Table</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    @*<link rel='stylesheet' type='text/css' media='screen' href='LTable.css'>*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        a {
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 10px;
+            color: #ffffff;
+        }
+
+        .table {
+            width: 100%;
+        }
+
+        .table_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgb(86, 206, 228);
+        }
+
+            .table_header p {
+                color: black;
+            }
+
+        .table_section {
+            height: 650px;
+            overflow: auto;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+            min-width: 1000px;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #f6f9fc;
+            color: #8493a5;
+            font-size: 15px;
+        }
+
+        th, td {
+            border-bottom: 1px solid #dddddd;
+            padding: 10px 20px;
+            word-break: break-all;
+            text-align: center;
+        }
+
+            td a:nth-child(1) {
+                background-color: #f80000;
+            }
+
+           
+
+        tr:hover td {
+            color: #0298cf;
+            background-color: #f6f9fc;
+        }
+    </style>
+    <script src='main.js'></script>
+</head>
+<body>
+    <div class="table">
+        <div class="table_header">
+            <p><b>Customer Details</b></p>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>
+                        @* <th>
+                            @Html.DisplayNameFor(model => model.OrderId)
+                            </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                        </th>
+                       @*<th>
+                            @Html.DisplayNameFor(model => model.Kilometres)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Weight)
+                        </th>
+                            <th>
+                            @Html.DisplayNameFor(model => model.Charges)
+                            </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApprovalStatus)
+                        </th>*@
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.DeliveryStatus)
+                            </th>*@
+                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            @* <td>
+                                @Html.DisplayFor(modelItem => item.OrderId)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                            </td>
+                         @* <td>
+                                @Html.DisplayFor(modelItem => item.Kilometres)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Weight)
+                            </td>
+                              <td>
+                                @Html.DisplayFor(modelItem => item.Charges)
+                                </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApprovalStatus)
+                            </td>*@
+                            @* <td>
+                                @Html.DisplayFor(modelItem => item.DeliveryStatus)
+                                </td>*@
+                            <td>
+                                @*<a asp-action="Edit" asp-controller="Admins" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a>*@
+                                <a asp-action="DeleteCustomer" asp-controller="Admins" asp-route-id="@item.Id"><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

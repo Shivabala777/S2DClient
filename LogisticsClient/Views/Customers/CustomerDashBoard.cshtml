@@ -1,0 +1,312 @@
+﻿@model LogisticsClient.Models.Order
+@inject IHttpContextAccessor Accessor;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+@*<h1>Details</h1>
+
+    <div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.CustomerId)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.CustomerId)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.OrderId)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.OrderId)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.ProductName)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.ProductName)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Source)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Source)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Destination)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Destination)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Kilometres)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Kilometres)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Weight)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Weight)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Charges)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Charges)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.ApprovalStatus)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.ApprovalStatus)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.DeliveryStatus)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.DeliveryStatus)
+    </dd>
+    </dl>
+    </div>*@
+
+
+<html>
+<head>
+    <title>Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="~/css/StyleSheet.css" asp-append-version="true" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        body {
+            position:relative;
+            right:20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f6f6f6;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        .box {
+            width: 500px;
+            border-bottom: 20px solid #03a9f4;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+            .box h2 {
+                height: 80px;
+                text-align: center;
+                color: #fff;
+                background: #03a9f4;
+                padding: 10px 20px;
+                font-size: 20px;
+                font-weight: 700;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+
+            .box ul {
+                position: relative;
+                background: #fff;
+            }
+
+                .box ul li {
+                    list-style: none;
+                    padding: 10px;
+                    width: 100%;
+                    background: #fff;
+                    box-shadow: 0 5px 25px rgba(0,0,0,.1);
+                    transition: transform 0.5s;
+                    height: 80px;
+                }
+
+                    .box ul li:hover {
+                        transform: scale(1.1);
+                        z-index: 100;
+                        background: #25bcff;
+                        box-shadow: 0 5px 25px rgba(0,0,0,.2);
+                        color: #fff;
+                    }
+
+                    .box ul li span {
+                        width: 20px;
+                        height: 20px;
+                        text-align: center;
+                        line-height: 20px;
+                        background: #25bcff;
+                        color: #fff;
+                        display: inline-block;
+                        border-radius: 50%;
+                        margin-right: 10px;
+                        font-size: 12px;
+                        font-weight: 600;
+                        transform: translateY(-20px);
+                    }
+
+                    .box ul li:hover span {
+                        background: #fff;
+                        color: #25bcff;
+                    }
+
+        .trash {
+            background-color: #f80000;
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 10px;
+            color: #ffffff;
+        }
+        .dummy{
+            margin-top:15px;
+        }
+        .details{
+            margin-left:100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Customer Dashboard</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Index">MyOrders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="TrackOrder">TrackOrder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="CustomerDetails">UpdateDetails</a>
+                        </li>
+
+                    </ul>
+                    @if (Accessor.HttpContext.Session.GetString("Email") != null)
+                    {
+                        <ul class="nav navbar-nav navbar-right dummy">
+                            <li class="nav-item">
+                                <p class="nav-link text-dark">@Accessor.HttpContext.Session.GetString("Email").ToString()</p>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark btn-danger text-white " asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+                            </li>
+                        </ul>
+
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="box details">
+        <h2>Order Details</h2>
+        <ul>
+            <li>
+                <span>1</span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <b>@Html.DisplayNameFor(model => model.ProductName)</b>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.ProductName)
+                    </div>
+                </div>
+
+            </li>
+            <li>
+                <span>2</span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <b>@Html.DisplayNameFor(model => model.Source)</b>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.Source)
+                    </div>
+                </div>
+            </li>
+            <li>
+                <span>3</span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <b>@Html.DisplayNameFor(model => model.Destination)</b>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.Destination)
+                    </div>
+                </div>
+
+            </li>
+            <li>
+                <span>4</span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <b>@Html.DisplayNameFor(model => model.Kilometres)</b>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.Kilometres)
+                    </div>
+                </div>
+            </li>
+            <li>
+                <span>5</span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <b>@Html.DisplayNameFor(model => model.Weight)</b>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.Weight)
+                    </div>
+                </div>
+            </li>
+            <li>
+                <span>6</span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <b>@Html.DisplayNameFor(model => model.Charges)</b>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.Charges)
+                    </div>
+                </div>
+            </li>
+            <li>
+                <span>7</span>
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <b>@Html.DisplayNameFor(model => model.ApprovalStatus)</b>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        @Html.DisplayFor(model => model.ApprovalStatus)
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <center><a asp-action="DeleteOrder" asp-controller="Customers" asp-route-id="@Model.OrderId" class="trash"><i class="fa-solid fa-trash"></i></a></center>
+        </div>
+        
+</body>
+</html>
+
+@*<center>
+    <div>
+    @Html.ActionLink("Delete","Delete","Customers",new{ id=Model.OrderId },new { @class="btn btn-danger" })
+    </div>
+    </center>*@

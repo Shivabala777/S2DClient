@@ -1,0 +1,272 @@
+﻿@model IEnumerable<LogisticsClient.Models.ViewModels.OrderDetails>
+
+@{
+    ViewData["Title"] = "Tracking";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@*<h1>Tracking</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+           <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+           </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kilometres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+           <th>
+                @Html.DisplayNameFor(model => model.Charges)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovalStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeliveryStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+         <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kilometres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Charges)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovalStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryStatus)
+            </td>
+            <td>
+                @Html.ActionLink("UpdateTracking", "UpdateTracking", new { id=item.OrderId }) 
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Table</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    @*<link rel='stylesheet' type='text/css' media='screen' href='LTable.css'>*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        a {
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 10px;
+            color: #ffffff;
+        }
+
+        .table {
+            width: 100%;
+        }
+
+        .table_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgb(86, 206, 228);
+        }
+
+            .table_header p {
+                color: black;
+            }
+
+        .table_section {
+            height: 650px;
+            overflow: auto;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+            min-width: 1000px;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #f6f9fc;
+            color: #8493a5;
+            font-size: 15px;
+        }
+
+        th, td {
+            border-bottom: 1px solid #dddddd;
+            padding: 10px 20px;
+            word-break: break-all;
+            text-align: center;
+        }
+
+            td a:nth-child(1) {
+                background-color: #0298cf;
+            }
+
+            td a:nth-child(2) {
+                background-color: #f80000;
+            }
+
+        tr:hover td {
+            color: #0298cf;
+            background-color: #f6f9fc;
+        }
+    </style>
+    <script src='main.js'></script>
+</head>
+<body>
+    <div class="table">
+        <div class="table_header">
+            <p><b>Order Details</b></p>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CustomerName)
+                        </th>
+                        @* <th>
+                            @Html.DisplayNameFor(model => model.OrderId)
+                            </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Source)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Destination)
+                        </th>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.Kilometres)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Weight)
+                        </th>*@
+                        @* <th>
+                            @Html.DisplayNameFor(model => model.Charges)
+                            </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApprovalStatus)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DeliveryStatus)
+                        </th>
+                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerName)
+                            </td>
+                            @* <td>
+                                @Html.DisplayFor(modelItem => item.OrderId)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Source)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Destination)
+                            </td>
+                           @* <td>
+                                @Html.DisplayFor(modelItem => item.Kilometres)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Weight)
+                            </td>*@
+                            @*  <td>
+                                @Html.DisplayFor(modelItem => item.Charges)
+                                </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApprovalStatus)
+                            </td>
+                           <td>
+                                @Html.DisplayFor(modelItem => item.DeliveryStatus)
+                           </td>
+                            <td>
+                                <a asp-action="UpdateTracking" asp-controller="Admins" asp-route-id="@item.OrderId"><i class="fa-solid fa-pen-to-square"></i></a>
+                                
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>
